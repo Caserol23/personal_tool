@@ -1820,7 +1820,7 @@ echo.
 echo @echo off
 echo mode con: cols=33 lines=30
 echo color a
-echo title GHRB - Tools v3.9
+echo title GHRB - Tools v4.0
 echo :menu
 echo cls
 echo echo  ===============================
