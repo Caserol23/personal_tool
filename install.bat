@@ -1824,7 +1824,7 @@ echo title GHRB - Tools v3.9
 echo :menu
 echo cls
 echo echo  ===============================
-echo echo         GHRB - Tools v3.9
+echo echo         GHRB - Tools v4.0
 echo echo.
 echo echo       Script and Compiled by
 echo echo             Caserol23
