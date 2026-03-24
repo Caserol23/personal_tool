@@ -1,5 +1,5 @@
 
 
-# GHRBCHYARG Personal Chart Tools
+# Personal Chart Tools
 
 This is my only personal tools ~ don't expect anything here
