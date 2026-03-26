@@ -38,22 +38,50 @@ echo   Note: This is where the location of all of your chart projects, with all 
 echo   audios, images and other miscellaneous items.
 echo.
 set /p chartproj=" > "
+
+:srcdl
 cls
+echo.
+echo   You need to download the resources, in order to install progress, it automatically opens
+echo   into the browser in Google Drive, please confirm that you wish to download...
+echo.
+echo   Press 1 - Download   Press 2 - Specify the file   Press 3 - Skip Downloading (Reinstall^)
+echo.
+set /p mainspecify=" > "
+if %mainspecify%=="1" goto maindl
+if %mainspecify%=="2" goto srcspecify
+if %mainspecify%=="3" goto srcskipped
+
+:maindl
+start "" "https://drive.google.com/file/d/16YY0e73KLfx81es_6WteTwb7cN8ldz_a/view?usp=drive_link"
+goto srcspecify
+
+:srcspecify
+cls
+echo.
+echo   Please specify the downloaded file "main.zip", please drag and drop here...
+echo.
+set /p spefmain=" > "
 goto insconf
-goto :eof
+
+:srcskipped
+set spefmain=None
+goto insconf
 
 :insconf
+cls
 echo.
 echo   Please confirm your installation...
 echo.
 echo   Installation folder: %installfol%
 echo   Chart Project Folder: %chartproj%
 echo.
+echo   The sources files: %spefmain%
+echo.
 echo   Press 1 - yes        Press 2 - no
 echo.
 
 set /p confirm=" > "
-set mainzip=%installfol%\main.zip
 if "%confirm%"=="1" goto inscont
 if "%confirm%"=="2" goto inscomp
 cls
@@ -61,8 +89,10 @@ goto :eof
 
 :inscont
 cls
-:: "%sevenz%" x "%mainzip%" -o"%installfol%" -y
+"%sevenz%" x "%spefmain%" -o"%installfol%" -y
+cls
 
+echo.
 echo   Installing...
 
 mkdir "%installfol%\_misc\scripts\game\menu"
