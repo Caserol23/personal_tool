@@ -1848,13 +1848,42 @@ echo.
 
 (
 echo @echo off
-echo mode con: cols=33 lines=30
-echo color a
-echo title GHRB - Tools v4.0
+echo title Charting
 echo :menu
 echo cls
 echo echo  ===============================
-echo echo         GHRB - Tools v4.0
+echo echo         Other Tools Menu
+echo echo  ===============================
+echo echo.
+echo echo             - Menu -
+echo echo.
+echo echo  1. Notepad++
+echo echo  2. FileZilla
+echo echo  3. PCSX2 Emulator
+echo echo.
+echo echo  0. Go back to Main Menu
+echo echo.
+echo echo  ===============================
+echo echo.
+echo set /p choice=" > "
+echo 
+echo if "%choice%"=="1" start %installfol%\_misc\tools\notepad\notepad++.exe
+echo if "%choice%"=="2" start %installfol%\_misc\tools\filezilla\filezilla.exe
+echo if "%choice%"=="3" start %installfol%\_misc\tools\pcsx2\pcsx2-qt.exe
+echo if "%choice%"=="0" call %installfol%\main.bat
+echo 
+echo goto menu
+) > "%installfol%\_misc\scripts\tools\menu\prog_tools.bat"
+
+(
+echo @echo off
+echo mode con: cols=33 lines=30
+echo color a
+echo title GHRB - Tools v6.4
+echo :menu
+echo cls
+echo echo  ===============================
+echo echo         GHRB - Tools v6.4
 echo echo.
 echo echo       Script and Compiled by
 echo echo             Caserol23
@@ -1869,14 +1898,13 @@ echo echo.
 echo echo             - Tools -
 echo echo.
 echo echo  4. Charting Tool Menu
-echo echo  5. Open Notepad++
-echo echo  6. Open FileZilla
-echo echo  7. Open PCSX2
+echo echo  5. Other Tools Menu
 echo echo.
 echo echo            - Options -
 echo echo.
-echo echo  8. Open GHRB-Tool Folder
-echo echo  9. Requirements Menu
+echo echo  6. Open GHRB-Tool Folder
+echo echo  7. Open Chart Folder
+echo echo  8. Requirements Menu
 echo echo  0. Exit 
 echo echo.
 echo echo  ===============================
@@ -1887,11 +1915,10 @@ echo if "%%choice%%"=="1" call %installfol%\_misc\scripts\gh\menu\main_menu.bat
 echo if "%%choice%%"=="2" call %installfol%\_misc\scripts\rb\menu\main_menu.bat
 echo if "%%choice%%"=="3" call %installfol%\_misc\scripts\game\menu\main_menu.bat
 echo if "%%choice%%"=="4" call %installfol%\_misc\scripts\tools\menu\main_menu.bat
-echo if "%%choice%%"=="5" start %installfol%\_misc\tools\notepad\notepad++.exe
-echo if "%%choice%%"=="6" start %installfol%\_misc\tools\filezilla\filezilla.exe
-echo if "%%choice%%"=="7" start %installfol%\_misc\tools\pcsx2\pcsx2-qt.exe
-echo if "%%choice%%"=="8" start "" %installfol%
-echo if "%%choice%%"=="9" call %installfol%\_misc\scripts\gh\menu\requirements_menu.bat
+echo if "%%choice%%"=="5" call %installfol%\_misc\scripts\tools\menu\prog_tools.bat
+echo if "%%choice%%"=="6" start "" %installfol%
+echo if "%%choice%%"=="7" start "" %installfol%\%chartproj%
+echo if "%%choice%%"=="8" call %installfol%\_misc\scripts\gh\menu\requirements_menu.bat
 echo if "%%choice%%"=="0" exit
 echo.
 echo goto menu
